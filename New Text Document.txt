@@ -1,0 +1,69 @@
+from tkinter import *
+import messagebox
+
+win= Tk()
+win.iconbitmap()
+win.title("calculater")
+win.geometry(("%dx%d+%d+%d")%(500,300,350,250))
+win.resizable(False,False)
+win.configure()
+#def
+def sum(e):
+    a=int(txt1.get())
+    b=int(txt2.get())
+    messagebox.showinfo("جمع",str(a+b))
+
+def min(e):
+   a=int(txt1.get())
+   b=int(txt2.get())
+   messagebox.showinfo("تفریق",str(a-b))
+
+def multi(e):
+   a=int(txt1.get())
+   b=int(txt2.get())
+   messagebox.showinfo("ضرب",str(a*b))
+
+def dist(e):
+   a=int(txt1.get())
+   b=int(txt2.get())
+   if a!=0 :
+      messagebox.showinfo("تقسیم",str(a/b))
+   else:
+      messagebox.showerror("نادرست ", "صفرتقسم نمیشود")
+
+#txt
+txt1=Entry(win)
+txt1.place(x=100,y=80)
+txt2=Entry(win)
+txt2.place(x=100,y=120)
+
+# lbl
+lbl1=Label(win,text="add1")
+lbl1.place(x=70,y=80)
+lbl2=Label(win,text="add2")
+lbl2.place(x=70,y=120)
+
+#btn
+btn1=Button(win,text="+")
+btn1.configure(font=300,bg="green",fg= "blue")
+btn1.bind("<Button-1>",sum)
+btn1.place(x=350,y=60)
+
+btn2=Button(win,text="-")
+btn2.configure(font=300,bg="red")
+btn2.bind("<Button-1>",min)
+btn2.place(x=380,y=60)
+
+btn3=Button(win,text="*")
+btn3.configure(font=300,bg="blue",fg="red")
+btn3.bind("<Button-1>",multi)
+btn3.place(x=350,y=120)
+
+btn4=Button(win,text="/")
+btn4.configure(font=300,bg="pink",fg="green")
+btn4.bind("<Button-1>",dist)
+btn4.place(x=380,y=120)
+
+win.mainloop()
+
+
